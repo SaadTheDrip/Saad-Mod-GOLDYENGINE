@@ -12,7 +12,7 @@ import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxSubState;
 import flixel.addons.effects.FlxTrail;
-import flixel.addons.transition.FlxTransitionableState;
+import flixel.graphics.FlxGraphic;
 import flixel.group.FlxSpriteGroup;
 import flixel.group.FlxGroup;
 import flixel.input.keyboard.FlxKey;
@@ -32,12 +32,14 @@ import flixel.util.FlxStringUtil;
 import flixel.util.FlxTimer;
 import openfl.display.Shader;
 import openfl.filters.ShaderFilter;
+import flixel.addons.transition.FlxTransitionableState;
 #if HSCRIPT_ALLOWED
 import hscript.ParserEx;
 #end
 import lime.app.Application;
 import lime.graphics.Image;
 import openfl.events.KeyboardEvent;
+import flixel.input.gamepad.FlxGamepad;
 import openfl.utils.Assets as OpenFlAssets;
 import openfl.filters.BitmapFilter;
 import ModchartFunctions;
@@ -51,6 +53,7 @@ import Song.SwagSong;
 import StageData;
 import UIData;
 import Shaders;
+import haxe.Json;
 #if MODS_ALLOWED
 import sys.FileSystem;
 import sys.io.File;
@@ -62,10 +65,18 @@ import haxe.Timer;
 
 using StringTools;
 
+
 class PlayState extends MusicBeatState
 {
 	public static var STRUM_X = 42;
 	public static var STRUM_X_MIDDLESCROLL = -278;
+
+	public var introSuffix:String = '';
+
+	var woah:FlxSprite;
+
+
+	var gottaHitNote:Bool;
 
 	public static var ratingStuff:Array<Array<Dynamic>> = [
 		['You Suck!', 0.2], //From 0% to 19%
@@ -155,6 +166,7 @@ class PlayState extends MusicBeatState
 	public var health:Float = 1;
 	public var shownHealth:Float = 1;
 	public var combo:Int = 0;
+	var sectionComboBreaks:Bool = false;
 
 	private var healthBarBG:AttachedSprite;
 	public var healthBar:FlxBar;
@@ -187,6 +199,7 @@ class PlayState extends MusicBeatState
 	public var opponentChart:Bool = false;
 	public var playbackRate:Float = 1;
 	public var demoMode:Bool = false;
+	public var opponentHealthDrain:Bool = true;
 
 	public var botplaySine:Float = 0;
 	public var botplayTxt:FlxText;
@@ -200,7 +213,7 @@ class PlayState extends MusicBeatState
 	public var camGame:FlxCamera;
 	public var camOther:FlxCamera;
 	public var cameraSpeed:Float = 1;
-	public static var iconBopSpeed:Int = 1;
+	public static var iconBopSpeed:Float = 0.5;
 
 	var dialogue:Array<String> = null;
 	var dialogueJson:DialogueFile = null;
@@ -293,6 +306,9 @@ class PlayState extends MusicBeatState
 	// Less laggy controls
 	private var keysArray:Array<Array<FlxKey>>;
 
+	// gamepad shit??
+	public var isUsingGamepad:Bool = false;
+
 	public var bfKeys:Int = 4;
 	public var dadKeys:Int = 4;
 	public var playerKeys:Int = 4;
@@ -341,6 +357,15 @@ class PlayState extends MusicBeatState
 		debugKeysChart = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_1'));
 		debugKeysCharacter = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_2'));
 		PauseSubState.songName = null; //Reset to default
+		woah = new FlxSprite(Paths.getPreloadPath('images/NOTECOMBO.png'));
+		woah.setGraphicSize(Std.int(woah.width * 1.6));
+		if (curStage != 'school' || curStage != 'schoolEvil')
+		woah.antialiasing = false;
+		else
+		woah.antialiasing = ClientPrefs.globalAntialiasing;
+		woah.scrollFactor.set();
+		woah.updateHitbox();
+		woah.screenCenter();
 
 		if (FlxG.sound.music != null)
 			FlxG.sound.music.stop();
@@ -355,6 +380,7 @@ class PlayState extends MusicBeatState
 			opponentChart = ClientPrefs.getGameplaySetting('opponentplay', false);
 			//playbackRate = ClientPrefs.getGameplaySetting('songspeed', 1);
 			demoMode = ClientPrefs.getGameplaySetting('demomode', false);
+			opponentHealthDrain = ClientPrefs.getGameplaySetting('opponentHealthDrain', true);
 			if (demoMode) {
 				cpuControlled = true;
 			}
@@ -456,8 +482,10 @@ class PlayState extends MusicBeatState
 					curStage = 'mallEvil';
 				case 'senpai' | 'roses':
 					curStage = 'school';
+					introSuffix = '-pixel';
 				case 'thorns':
 					curStage = 'schoolEvil';
+					introSuffix = '-evil';
 				default:
 					curStage = 'stage';
 			}
@@ -696,6 +724,7 @@ class PlayState extends MusicBeatState
 						fastCar.active = true;
 						limoKillingState = 0;
 
+
 					case 'mall': //Week 5 - Cocoa, Eggnog
 						var bg:BGSprite = new BGSprite('christmas/bgWalls', -1000, -500, 0.2, 0.2);
 						bg.setGraphicSize(Std.int(bg.width * 0.8));
@@ -773,6 +802,8 @@ class PlayState extends MusicBeatState
 						GameOverSubState.loopSoundName = 'gameOver-pixel';
 						GameOverSubState.endSoundName = 'gameOverEnd-pixel';
 						GameOverSubState.characterName = 'bf-pixel-dead';
+
+						introSuffix == '-pixel';
 
 						var bgSky:BGSprite = new BGSprite('weeb/weebSky', 0, 0, 0.1, 0.1);
 						add(bgSky);
@@ -852,6 +883,8 @@ class PlayState extends MusicBeatState
 						GameOverSubState.loopSoundName = 'gameOver-pixel';
 						GameOverSubState.endSoundName = 'gameOverEnd-pixel';
 						GameOverSubState.characterName = 'bf-pixel-dead';
+
+						introSuffix == '-evil';
 
 						var posX = 400;
 						var posY = 200;
@@ -954,6 +987,9 @@ class PlayState extends MusicBeatState
 					}
 				}
 			}
+			// hmmmm
+			if (ClientPrefs.camFollow)
+               luaArray.push(new FunkinLua('assets/scripts/optional/camFollow.lua'));
 			#end
 			
 			// STAGE SCRIPTS
@@ -1464,6 +1500,7 @@ class PlayState extends MusicBeatState
 		}
 		add(ratingTxtGroup);
 
+
 		if (!inEditor) {
 			strumLineNotes.cameras = [camHUD];
 			grpNoteSplashes.cameras = [camHUD];
@@ -1678,11 +1715,8 @@ class PlayState extends MusicBeatState
 		}
 		#end
 
-		if(!ClientPrefs.controllerMode)
-		{
-			FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
-			FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
-		}
+        FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
+		FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
 
 		Conductor.safeZoneOffset = (ClientPrefs.safeFrames / 60) * 1000;
 
@@ -1690,6 +1724,10 @@ class PlayState extends MusicBeatState
 		postSetHscript();
 		#end
 		callOnScripts('onCreatePost', []);
+
+		// gamepad shit again
+		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
+		isUsingGamepad = !FlxG.keys.justReleased.ANY && !FlxG.keys.pressed.ANY && gamepad != null && !gamepad.justReleased.ANY && gamepad.pressed.ANY;
 
 		//cache note splashes
 		var textureMap:Map<String, Bool> = new Map();
@@ -1874,15 +1912,17 @@ class PlayState extends MusicBeatState
 			// copyed from FunkinLua file
 		private function noteCombo():Void
 		{
-			var text:FlxText = new FlxText(12, FlxG.height - 44, 0, 'NOTE COMBO!', 12);
-			text.scrollFactor.set();
-			text.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-			add(text);
 			//var mytimer:FlxTimer;
-			/*if (ClientPrefs.flashing)
+			if (ClientPrefs.flashing)
 			{
-				FlxG.camera.flash(FlxColor.WHITE, 1); // funny
-			}*/
+				FlxG.camera.flash(FlxColor.WHITE, 1); // funny mukbang flash (wtf i wrote)
+			}
+			add(woah);
+			songScore = songScore + 100; // give one hundred score for shit
+			new FlxTimer().start(1.5, function(tmr:FlxTimer)
+			{
+				remove(woah);
+			});
 		}
 
 	#if HSCRIPT_ALLOWED
@@ -2736,6 +2776,7 @@ class PlayState extends MusicBeatState
 			callOnScripts('onStartCountdown', []);
 			return;
 		}
+		gf.dance(); // cuz gf does stay on danceLeft forever
 
 		inCutscene = false;
 		var ret:Dynamic = callOnScripts('onStartCountdown', []);
@@ -2796,16 +2837,9 @@ class PlayState extends MusicBeatState
 					switch (swagCounter)
 					{
 						case 0:
-							var introSuffix = !opponentChart ? uiSkinMap.get('player').introSoundsSuffix : uiSkinMap.get('opponent').introSoundsSuffix;
-							if (introSoundsSuffix != null && introSoundsSuffix.length > 0) {
-								introSuffix = introSoundsSuffix;
-							}
-							FlxG.sound.play(Paths.sound('intro3$introSuffix'), 0.6);
+                            trace('starting countdown...');
+							FlxG.sound.play(Paths.sound('intro3$introSuffix'));
 						case 1:
-							var introSuffix = uiSkinMap.get('ready').introSoundsSuffix;
-							if (introSoundsSuffix != null && introSoundsSuffix.length > 0) {
-								introSuffix = introSoundsSuffix;
-							}
 							countdownReady = new FlxSprite().loadGraphic(Paths.image(UIData.checkImageFile('ready', uiSkinMap.get('ready'))));
 							countdownReady.scrollFactor.set();
 							countdownReady.updateHitbox();
@@ -2826,10 +2860,6 @@ class PlayState extends MusicBeatState
 							});
 							FlxG.sound.play(Paths.sound('intro2$introSuffix'), 0.6);
 						case 2:
-							var introSuffix = uiSkinMap.get('set').introSoundsSuffix;
-							if (introSoundsSuffix != null && introSoundsSuffix.length > 0) {
-								introSuffix = introSoundsSuffix;
-							}
 							countdownSet = new FlxSprite().loadGraphic(Paths.image(UIData.checkImageFile('set', uiSkinMap.get('set'))));
 							countdownSet.scrollFactor.set();
 
@@ -2849,10 +2879,6 @@ class PlayState extends MusicBeatState
 							});
 							FlxG.sound.play(Paths.sound('intro1$introSuffix'), 0.6);
 						case 3:
-							var introSuffix = uiSkinMap.get('go').introSoundsSuffix;
-							if (introSoundsSuffix != null && introSoundsSuffix.length > 0) {
-								introSuffix = introSoundsSuffix;
-							}
 							countdownGo = new FlxSprite().loadGraphic(Paths.image(UIData.checkImageFile('go', uiSkinMap.get('go'))));
 							countdownGo.scrollFactor.set();
 
@@ -3122,7 +3148,7 @@ class PlayState extends MusicBeatState
 					daNoteData = Std.int((songNotes[1] - leftKeys) % rightKeys);
 				}
 
-				var gottaHitNote:Bool = section.mustHitSection;
+				gottaHitNote = section.mustHitSection;
 
 				if (songNotes[1] >= leftKeys)
 				{
@@ -3531,6 +3557,7 @@ class PlayState extends MusicBeatState
 	{
 		callOnScripts('onUpdate', [elapsed]);
 
+
 		if (!inEditor) {
 			#if (VIDEOS_ALLOWED && desktop)
 			//STOLEN FROM VS PSYCHIC
@@ -3759,10 +3786,7 @@ class PlayState extends MusicBeatState
 				iconP2.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 0, healthBar.numDivisions) * division)) - (150 * iconP2.scale.x) / 2 - iconOffset * 2;
 			}
 
-			if (health > 2)
-				health = 2;
 
-			var stupidIcons:Array<HealthIcon> = [iconP1, iconP2];
 			// NEW HEALTH SYSTEM
 			if (health > 2)
 				health = 2;
@@ -3776,11 +3800,11 @@ class PlayState extends MusicBeatState
 			switch(SONG.player2)
 			{
 				default:
-					if (healthBar.percent < 20)
+					if (healthBar.percent < 20 && iconP1.hasWinIcon)
 						iconP2.changeIcon(dad.healthIcon, 'win');
-					else if (healthBar.percent > 20 && healthBar.percent < 80)
+					else if (healthBar.percent > 20)
 						iconP2.changeIcon(dad.healthIcon, 'default')
-					else if (healthBar.percent > 80 && iconP2.hasLoseIcon)
+					else if (healthBar.percent > 80 && iconP1.hasLoseIcon)
 						iconP2.changeIcon(dad.healthIcon, 'lose');
 			} 
 
@@ -4032,6 +4056,8 @@ class PlayState extends MusicBeatState
 					rating.text = 'Shit: $shits';
 				case 4:
 					rating.text = 'Misses: $songMisses';
+				case 5:
+					rating.text = 'Combos: $combo';
 			}
 		}
 
@@ -4110,7 +4136,7 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-	public function pauseGame(playSound:Bool = true) {
+	public function pauseGame(playSound:Bool = false) {
 		persistentUpdate = false;
 		paused = true;
 
@@ -4626,10 +4652,6 @@ class PlayState extends MusicBeatState
 		{
 			moveCamera(true);
 			callOnScripts('onMoveCamera', ['dad']);
-			/*if (songMisses = 0)
-			{
-				noteCombo(); //smart ass i guess
-			}*/
 		}
 		/*if (!SONG.notes[id].gfSection)
 		{
@@ -4644,6 +4666,7 @@ class PlayState extends MusicBeatState
 	}
 
 	var cameraTwn:FlxTween;
+	var lastCamFocused:Bool;
 	public function moveCamera(isDad:Bool)
 	{
 		if (isDad)
@@ -4658,6 +4681,13 @@ class PlayState extends MusicBeatState
 				camFollow.y += dad.cameraPosition[1] + opponentCameraOffset[1];
 			}
 			tweenCamIn();
+			if (lastCamFocused != isDad)
+				{
+					if (!sectionComboBreaks && combo > 1)
+						noteCombo();
+					
+					sectionComboBreaks = false;
+				}
 		}
 		else
 		{
@@ -4681,6 +4711,7 @@ class PlayState extends MusicBeatState
 				});
 			}
 		}
+		lastCamFocused = isDad;
 	}
 
 	function tweenCamIn() {
@@ -5133,7 +5164,7 @@ class PlayState extends MusicBeatState
 			var eventKey:FlxKey = event.keyCode;
 			var key:Int = getKeyFromEvent(eventKey);
 
-			if (key > -1 && (FlxG.keys.checkStatus(eventKey, JUST_PRESSED) || ClientPrefs.controllerMode))
+			if (key > -1 && !cpuControlled && startedCountdown && !paused && key > -1 && (FlxG.keys.checkStatus(eventKey, JUST_PRESSED) || isUsingGamepad))
 			{
 				if ((inEditor || !playerChar.members[0].stunned) && generatedMusic && !endingSong)
 				{
@@ -5258,7 +5289,7 @@ class PlayState extends MusicBeatState
 		}
 
 		// TO DO: Find a better way to handle controller inputs, this should work for now
-		if(ClientPrefs.controllerMode)
+		if(isUsingGamepad)
 		{
 			var controlArray:Array<Bool> = [];
 			for (i in keysArray) {
@@ -5296,8 +5327,8 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		// TO DO: Find a better way to handle controller inputs, this should work for now
-		if(ClientPrefs.controllerMode)
+		// TO DO: Find a better way to handle controller inputs, this should work for now (actually coded now)
+		if(isUsingGamepad)
 		{
 			var controlArray:Array<Bool> = [];
 			for (i in keysArray) {
@@ -5315,7 +5346,8 @@ class PlayState extends MusicBeatState
 	}
 
 	function noteMiss(daNote:Note):Void { //You didn't hit the key and let it go offscreen, also used by Hurt Notes
-		//Dupe note remove
+	sectionComboBreaks = true;	
+	//Dupe note remove
 		notes.forEachAlive(function(note:Note) {
 			if (daNote != note && daNote.mustPress && daNote.noteData == note.noteData && daNote.isSustainNote == note.isSustainNote && Math.abs(daNote.strumTime - note.strumTime) < 1) {
 				note.kill();
@@ -5501,7 +5533,7 @@ class PlayState extends MusicBeatState
 			notes.remove(note, true);
 			note.destroy();
 		}
-		if (ClientPrefs.opponentHealthDrain)
+		if (opponentHealthDrain)
 		{	
 			health = health - note.hitHealth;
 			if (healthBar.percent < 15) health = health + note.hitHealth;
@@ -5884,7 +5916,7 @@ class PlayState extends MusicBeatState
 		vocalsDad.stop();
 		vocalsDad.destroy();
 
-		if (!ClientPrefs.controllerMode)
+		if (!isUsingGamepad)
 		{
 			FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
 			FlxG.stage.removeEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
@@ -6008,34 +6040,40 @@ class PlayState extends MusicBeatState
 				camHUD.zoom += 0.03;
 			}
 
-			if (iconBopSpeed > 0 && curBeat % iconBopSpeed == 0) {
-				iconP1.scale.set(1.2, 1.2);
-				iconP2.scale.set(1.2, 1.2);
-				iconP1.updateHitbox();
-				iconP2.updateHitbox();
+			if (iconBopSpeed > 0 && curBeat % iconBopSpeed == 0) { // no.
 			}
 			if (curBeat % iconBopSpeed == 0) {
 				curBeat % (iconBopSpeed * 2) == 0 ? {
-					iconP1.scale.set(1.1, 0.8);
-					iconP2.scale.set(1.1, 1.3);
 	
 					FlxTween.angle(iconP1, -15, 0, Conductor.crochet / 1300 * iconBopSpeed, {ease: FlxEase.quadOut});
-					FlxTween.angle(iconP2, 15, 0, Conductor.crochet / 1300 * iconBopSpeed, {ease: FlxEase.quadOut});
+					FlxTween.angle(iconP2, -15, 0, Conductor.crochet / 1300 * iconBopSpeed, {ease: FlxEase.quadOut});
+
+					iconP1.scale.set(1.2, 1.2);
+					iconP2.scale.set(1.2, 1.2);
+					iconP1.updateHitbox();
+					iconP2.updateHitbox();
 				} : {
-					iconP1.scale.set(1.1, 1.3);
-					iconP2.scale.set(1.1, 0.8);
 	
 					FlxTween.angle(iconP2, -15, 0, Conductor.crochet / 1300 * iconBopSpeed, {ease: FlxEase.quadOut});
-					FlxTween.angle(iconP1, 15, 0, Conductor.crochet / 1300 * iconBopSpeed, {ease: FlxEase.quadOut});
+					FlxTween.angle(iconP1, -15, 0, Conductor.crochet / 1300 * iconBopSpeed, {ease: FlxEase.quadOut});
+
+					iconP1.scale.set(1.2 + 0.5, 1.2 + 0.5);
+					iconP2.scale.set(1.2 + 0.5, 1.2 + 0.5); // im stupid asf
+					iconP1.updateHitbox();
+					iconP2.updateHitbox();
 				}
 	
 				FlxTween.tween(iconP1, {'scale.x': 1, 'scale.y': 1}, Conductor.crochet / 1250 * iconBopSpeed, {ease: FlxEase.quadOut});
 				FlxTween.tween(iconP2, {'scale.x': 1, 'scale.y': 1}, Conductor.crochet / 1250 * iconBopSpeed, {ease: FlxEase.quadOut});
+
+				iconP1.scale.set(1, 1);
+				iconP2.scale.set(1, 1);
 	
 				iconP1.updateHitbox();
 				iconP2.updateHitbox();
 			}
 			// x2 bop icons lol
+			// yes scale
 
 			var chars = [boyfriendGroup, dadGroup, gfGroup];
 			for (group in chars) {

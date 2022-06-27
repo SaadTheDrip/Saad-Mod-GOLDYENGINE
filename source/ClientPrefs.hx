@@ -23,7 +23,6 @@ class ClientPrefs {
 	public static var showRatings:Bool = true;
 	public static var noReset:Bool = false;
 	public static var healthBarAlpha:Float = 1;
-	public static var controllerMode:Bool = false;
 	public static var hitsoundVolume:Float = 0;
 	public static var pauseMusic:String = 'Tea Time';
 	public static var instVolume:Float = 1;
@@ -31,6 +30,8 @@ class ClientPrefs {
 	public static var underlayAlpha:Float = 0;
 	public static var instantRestart:Bool = false;
 	public static var flashingAmount:Float = 1;
+	public static var moreShit:String = 'Goldy';
+	public static var camFollow:Bool = true;
 	#if !html5
 	public static var autoPause:Bool = true;
 	#else
@@ -39,7 +40,6 @@ class ClientPrefs {
 	public static var focusLostPause:Bool = true;
 	public static var shitMisses:Bool = true;
 	public static var smoothHealth:Bool = true;
-	public static var opponentHealthDrain:Bool = true;
 	public static var skipIntro:Bool = false;
 	public static var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,
@@ -60,7 +60,8 @@ class ClientPrefs {
 		'practice' => false,
 		'botplay' => false,
 		'opponentplay' => false,
-		'demomode' => false
+		'demomode' => false,
+		'opponentHealthDrain'=> true
 	];
 
 	public static var comboOffset:Array<Int> = [0, 0, 0, 0];
@@ -209,6 +210,7 @@ class ClientPrefs {
 
 	public static function saveSettings() {
 		FlxG.save.data.downScroll = downScroll;
+		FlxG.save.data.camFollow = camFollow;
 		FlxG.save.data.middleScroll = middleScroll;
 		FlxG.save.data.showFPS = showFPS;
 		FlxG.save.data.flashing = flashing;
@@ -243,10 +245,11 @@ class ClientPrefs {
 		FlxG.save.data.goodWindow = goodWindow;
 		FlxG.save.data.badWindow = badWindow;
 		FlxG.save.data.safeFrames = safeFrames;
-		FlxG.save.data.controllerMode = controllerMode;
 		FlxG.save.data.hitsoundVolume = hitsoundVolume;
 		FlxG.save.data.pauseMusic = pauseMusic;
 		FlxG.save.data.gameplaySettings = gameplaySettings;
+
+		FlxG.save.data.moreShit = moreShit;
 	
 		FlxG.save.flush();
 
@@ -260,6 +263,9 @@ class ClientPrefs {
 	public static function loadPrefs() {
 		if (FlxG.save.data.downScroll != null) {
 			downScroll = FlxG.save.data.downScroll;
+		}
+	    if (FlxG.save.data.camFollow != null) {
+			camFollow = FlxG.save.data.camFollow;
 		}
 		if (FlxG.save.data.middleScroll != null) {
 			middleScroll = FlxG.save.data.middleScroll;
@@ -343,9 +349,6 @@ class ClientPrefs {
 		if (FlxG.save.data.safeFrames != null) {
 			safeFrames = FlxG.save.data.safeFrames;
 		}
-		if(FlxG.save.data.controllerMode != null) {
-			controllerMode = FlxG.save.data.controllerMode;
-		}
 		if(FlxG.save.data.hitsoundVolume != null) {
 			hitsoundVolume = FlxG.save.data.hitsoundVolume;
 		}
@@ -384,6 +387,10 @@ class ClientPrefs {
 			{
 				gameplaySettings.set(name, value);
 			}
+		}
+		if (FlxG.save.data.moreShit != null)
+		{
+		    moreShit = FlxG.save.data.moreShit;
 		}
 		
 		// flixel automatically saves your volume!

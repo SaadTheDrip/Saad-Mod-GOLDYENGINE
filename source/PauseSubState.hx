@@ -33,6 +33,7 @@ class PauseSubState extends MusicBeatSubState
 		super();
 		if (CoolUtil.difficulties.length < 2) menuItemsOG.remove('Change Difficulty'); //No need to change difficulty if there is only one!
 
+
 		if (PlayState.chartingMode) {
 			menuItemsOG.insert(2, 'Leave Charting Mode');
 
@@ -187,7 +188,7 @@ class PauseSubState extends MusicBeatSubState
 				}
 		}
 
-		if (accepted)
+		if (accepted && !PlayState.instance.isUsingGamepad)
 		{
 			if (menuItems == difficultyChoices)
 			{

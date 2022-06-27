@@ -13,13 +13,8 @@ import flixel.addons.transition.FlxTransitionSprite.GraphicTransTileDiamond;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.addons.transition.TransitionData;
 import haxe.Json;
-#if MODS_ALLOWED
 import sys.FileSystem;
 import sys.io.File;
-#else 
-import openfl.utils.Assets;
-#end
-
 //import flixel.graphics.FlxGraphic;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup;
@@ -123,12 +118,12 @@ class TitleState extends MusicBeatState
 		#if CHECK_FOR_UPDATES
 		if(!closedState) {
 			trace('checking for update');
-			var http = new haxe.Http("https://raw.githubusercontent.com/cheblol/FNF-FunkinGoldyEngine-lua/main/gitVersion.txt");
+			var http = new haxe.Http("https://raw.githubusercontent.com/cheblol/FNF-FunkinGoldyEngine/main/gitVersion.txt");
 			
 			http.onData = function (data:String)
 			{
 				updateVersion = data.split('\n')[0].trim();
-				var curVersion:String = MainMenuState.engineVersion.trim();
+				var curVersion:String = MainMenuStateGoldy.engineVersion.trim();
 				trace('version online: ' + updateVersion + ', your version: ' + curVersion);
 				if(updateVersion != curVersion) {
 					trace('versions arent matching!');
@@ -396,8 +391,10 @@ class TitleState extends MusicBeatState
 
 				new FlxTimer().start(1, function(tmr:FlxTimer)
 				{
-					{
-						MusicBeatState.switchState(new MainMenuState());
+					if (mustUpdate) {
+						MusicBeatState.switchState(new OutdatedState());
+					} else {
+						MusicBeatState.switchState(new MainMenuStateGoldy());
 					}
 					closedState = true;
 				});
@@ -499,17 +496,7 @@ class TitleState extends MusicBeatState
 		super.beatHit();
 
 		if(logoBl != null) 
-		{
 			logoBl.animation.play('bump');
-			if (curBeat % PlayState.iconBopSpeed == 0) {
-				curBeat % (PlayState.iconBopSpeed * 2) == 0 ? {
-	
-					FlxTween.angle(logoBl, -15, 0, Conductor.crochet / 1300 * PlayState.iconBopSpeed, {ease: FlxEase.quadOut});
-				} : {
-					FlxTween.angle(logoBl, 30, 0, Conductor.crochet / 1300 * PlayState.iconBopSpeed, {ease: FlxEase.quadOut});
-				}
-		    }
-	    }
 
 		if(gfDance != null) {
 			danceLeft = !danceLeft;
