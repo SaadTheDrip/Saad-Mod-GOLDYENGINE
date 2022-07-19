@@ -1776,34 +1776,7 @@ class PlayState extends MusicBeatState
 			}
 		}
 			
-		var daComposer:String;
 		
-		switch (curSong)
-		{
-		     case 'theunderratedsongnoonecareswithoverratedmodidea':
-				daComposer = '\n Main Song: Saad: Theunderratedsongnoonecares\n Remix:Cheb';
-			case 'bad-apple':
-				daComposer = '\n Main Song: Masayoshi Minoshima: Bad Apple\n Cover:Saad';
-			case 'free-club-penguin':
-				daComposer = '\n Main Song: Dreamscape 009 Sound System\n Cover:Saad';
-			case 'dilemma':
-				daComposer = '\n Main Song: Atsuover: Dilemma\n Cover:Saad';
-			case 'sex':
-				daComposer = '\n Main Song: Thaehan: Boing\n Cover:Saad';
-			case 'roses':
-				daComposer = '\n Main Song: KawaiSprite: Roses\n Cover:Saad';
-		     default:
-				daComposer = 'Saad';
-
-		
-		
-		var daText:FlxText = new FlxText(12, FlxG.height - 240, 0, 'Song Name: $curSong \nComposer Name: $daComposer', 16);
-		daText.scrollFactor.set();
-		daText.setFormat("Comic Sans MS", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		add(daText);
-			FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
-			FlxG.stage.removeEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
-		}
 		
 		
 		super.create();
@@ -1981,7 +1954,6 @@ class PlayState extends MusicBeatState
 			{
 				FlxG.camera.flash(FlxColor.WHITE, 1); // funny mukbang flash (wtf i wrote)
 			}
-			add(woah);
 			songScore = songScore + 100; // give one hundred score for shit
 			new FlxTimer().start(1.5, function(tmr:FlxTimer)
 			{
