@@ -1778,18 +1778,6 @@ class PlayState extends MusicBeatState
 			
 		var daComposer:String;
 		
-		switch (curSong)
-		{
-		     case 'theunderratedsongnoonecareswithoverratedmodidea':
-				daComposer = '\n Main Song: Saad\n Remix:Cheb';
-		     default:
-				daComposer = 'Saad';
-		}
-		
-		var daText:FlxText = new FlxText(12, FlxG.height - 240, 0, 'Song Name: $curSong \nComposer Name: $daComposer', 16);
-		daText.scrollFactor.set();
-		daText.setFormat("Comic Sans MS", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		add(daText);
 		
 		super.create();
 
