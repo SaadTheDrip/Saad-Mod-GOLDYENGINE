@@ -467,7 +467,7 @@ class TitleState extends MusicBeatState
 		{
 			var money:Alphabet = new Alphabet(0, 0, textArray[i], true, false);
 			money.screenCenter(X);
-			money.y += (i * 60) + 200 + offset;
+			money.y += (i * 70) + 200 + offset;
 			credGroup.add(money);
 			textGroup.add(money);
 		}
@@ -478,7 +478,7 @@ class TitleState extends MusicBeatState
 		if(textGroup != null && credGroup != null) {
 			var coolText:Alphabet = new Alphabet(0, 0, text, true, false);
 			coolText.screenCenter(X);
-			coolText.y += (textGroup.length * 60) + 200 + offset;
+			coolText.y += (textGroup.length * 70) + 200 + offset;
 			credGroup.add(coolText);
 			textGroup.add(coolText);
 		}
@@ -517,12 +517,11 @@ class TitleState extends MusicBeatState
 			{
 				#if WATERMARKS_ALLOWED
 				case 1:
-					createCoolText(['Goldy Engine by'], 15);
+					createCoolText(['Saad Mod by'], 15);
 				// credTextShit.visible = true;
 				case 3:
+					addMoreText('Saad', 15);
 					addMoreText('Cheb', 15);
-					addMoreText('ben!?!!?', 15);
-					addMoreText('Artevar', 15);
 				// credTextShit.text += '\npresent...';
 				// credTextShit.addText();
 				case 4:
@@ -531,7 +530,7 @@ class TitleState extends MusicBeatState
 				// credTextShit.text = 'In association \nwith';
 				// credTextShit.screenCenter();
 				case 5:
-					createCoolText(['This is a engine to'], -60);
+					createCoolText(['This is a Mod to'], -60);
 				case 7:
 					addMoreText('Friday Night Funkin', -60);
 				// credTextShit.text += '\nNewgrounds';
@@ -555,13 +554,13 @@ class TitleState extends MusicBeatState
 				// credTextShit.text = "Friday";
 				// credTextShit.screenCenter();
 				case 13:
-					addMoreText('Friday');
+					addMoreText('Saad');
 				// credTextShit.visible = true;
 				case 14:
-					addMoreText('Night');
+					addMoreText('Mod');
 				// credTextShit.text += '\nNight';
 				case 15:
-					addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
+					addMoreText('4k REAL OMG'); // credTextShit.text += '\nFunkin';
 
 				case 16:
 					skipIntro();
