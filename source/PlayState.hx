@@ -74,8 +74,6 @@ class PlayState extends MusicBeatState
 	public var introSuffix:String = '';
 
 	var woah:FlxSprite;
-	
-	var daComposer:String;
 
 
 	var gottaHitNote:Bool;
@@ -1777,8 +1775,21 @@ class PlayState extends MusicBeatState
 				textureMap.set(skin, true);
 			}
 		}
+			
+		var daComposer:String;
 		
-
+		switch (curSong)
+		{
+		     case 'theunderratedsongnoonecareswithoverratedmodidea':
+				daComposer = '\n Main Song: Saad\n Remix:Cheb';
+		     default:
+				daComposer = 'Saad';
+		}
+		
+		var daText:FlxText = new FlxText(12, FlxG.height - 240, 0, 'Song Name: $curSong \nComposer Name: $daComposer', 16);
+		daText.scrollFactor.set();
+		daText.setFormat("Comic Sans MS", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		add(daText);
 		
 		super.create();
 
@@ -1955,6 +1966,7 @@ class PlayState extends MusicBeatState
 			{
 				FlxG.camera.flash(FlxColor.WHITE, 1); // funny mukbang flash (wtf i wrote)
 			}
+			add(woah);
 			songScore = songScore + 100; // give one hundred score for shit
 			new FlxTimer().start(1.5, function(tmr:FlxTimer)
 			{
@@ -5963,8 +5975,6 @@ class PlayState extends MusicBeatState
 			FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
 			FlxG.stage.removeEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
 		}
-
-		//reset window to before lua messed with it
 		super.destroy();
 	}
 
