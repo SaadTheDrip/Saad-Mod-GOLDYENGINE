@@ -1786,7 +1786,7 @@ class PlayState extends MusicBeatState
 				daComposer = 'Saad';
 		}
 		
-		var daText:FlxText = new FlxText(12, FlxG.height - 240, 0, 'Song Name: $curSong \nComposer Name: $daComposer', 12);
+		var daText:FlxText = new FlxText(12, FlxG.height - 240, 0, 'Song Name: $curSong \nComposer Name: $daComposer', 16);
 		daText.scrollFactor.set();
 		daText.setFormat("Comic Sans MS", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(daText);
@@ -5975,11 +5975,6 @@ class PlayState extends MusicBeatState
 			FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
 			FlxG.stage.removeEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
 		}
-
-		//reset window to before lua messed with it
-		Application.current.window.title = 'Friday Night Funkin\'';
-		CoolUtil.setWindowIcon();
-
 		super.destroy();
 	}
 
