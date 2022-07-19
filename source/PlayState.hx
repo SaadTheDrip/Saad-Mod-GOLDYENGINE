@@ -74,6 +74,8 @@ class PlayState extends MusicBeatState
 	public var introSuffix:String = '';
 
 	var woah:FlxSprite;
+	
+	var daComposer:String;
 
 
 	var gottaHitNote:Bool;
@@ -1776,20 +1778,33 @@ class PlayState extends MusicBeatState
 			}
 		}
 			
-		var daComposer:String;
-		
 		switch (curSong)
 		{
 		     case 'theunderratedsongnoonecareswithoverratedmodidea':
-				daComposer = '\n Main Song: Saad\n Remix:Cheb';
+				daComposer = '\n Main Song: Saad: Theunderratedsongnoonecares\n Remix:Cheb';
+			case 'bad-apple':
+				daComposer = '\n Main Song: Masayoshi Minoshima: Bad Apple\n Cover:Saad';
+			case 'free-club-penguin':
+				daComposer = '\n Main Song: Dreamscape 009 Sound System\n Cover:Saad';
+			case 'dilemma':
+				daComposer = '\n Main Song: Atsuover: Dilemma\n Cover:Saad';
+			case 'sex':
+				daComposer = '\n Main Song: Thaehan: Boing\n Cover:Saad';
+			case 'roses':
+				daComposer = '\n Main Song: KawaiSprite: Roses\n Cover:Saad';
 		     default:
 				daComposer = 'Saad';
 		}
 		
-		var daText:FlxText = new FlxText(12, FlxG.height - 240, 0, 'Song Name: $curSong \nComposer Name: $daComposer', 12);
+		
+		daText = new FlxText(12, FlxG.height - 240, 0, 'Song Name: $curSong \nComposer(s): $daComposer', 12);
 		daText.scrollFactor.set();
 		daText.setFormat("Comic Sans MS", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		daText.scale.set(1.75, 1.75);
+		daText.updateHitbox();
 		add(daText);
+		
+
 		
 		super.create();
 
