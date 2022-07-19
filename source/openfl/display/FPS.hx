@@ -1,3 +1,4 @@
+#if !html5
 package openfl.display;
 
 import openfl.text.TextField;
@@ -107,3 +108,4 @@ class FPS extends TextField
 		cacheCount = currentCount;
 	}
 }
+#end
