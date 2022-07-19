@@ -1776,7 +1776,7 @@ class PlayState extends MusicBeatState
 			}
 		}
 			
-		var daCamposer:String;
+		var daComposer:String;
 		
 		switch (curSong)
 		{
