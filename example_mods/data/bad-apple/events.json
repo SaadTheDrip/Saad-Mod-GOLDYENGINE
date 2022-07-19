@@ -1,0 +1,366 @@
+{
+	"song": {
+		"speed": 3.5,
+		"stage": "white",
+		"player1": "badbf",
+		"player2": "badsaad",
+		"events": [
+			[
+				0,
+				[
+					[
+						"invert game",
+						"white",
+						""
+					]
+				]
+			],
+			[
+				13913.0434782609,
+				[
+					[
+						"invert game",
+						"black",
+						""
+					]
+				]
+			],
+			[
+				27826.0869565217,
+				[
+					[
+						"invert game",
+						"white",
+						""
+					]
+				]
+			],
+			[
+				41739.1304347826,
+				[
+					[
+						"invert game",
+						"black",
+						""
+					]
+				]
+			],
+			[
+				55652.1739130435,
+				[
+					[
+						"invert game",
+						"white",
+						""
+					]
+				]
+			],
+			[
+				69130.4347826087,
+				[
+					[
+						"invert game",
+						"black",
+						""
+					]
+				]
+			],
+			[
+				76521.7391304348,
+				[
+					[
+						"invert game",
+						"white",
+						""
+					]
+				]
+			],
+			[
+				82608.6956521739,
+				[
+					[
+						"invert game",
+						"black",
+						""
+					]
+				]
+			],
+			[
+				83043.4782608696,
+				[
+					[
+						"invert game",
+						"white",
+						""
+					]
+				]
+			],
+			[
+				83478.2608695652,
+				[
+					[
+						"invert game",
+						"black",
+						""
+					]
+				]
+			],
+			[
+				84347.8260869565,
+				[
+					[
+						"invert game",
+						"white",
+						""
+					]
+				]
+			],
+			[
+				86086.9565217391,
+				[
+					[
+						"invert game",
+						"black",
+						""
+					]
+				]
+			],
+			[
+				87826.0869565217,
+				[
+					[
+						"invert game",
+						"white",
+						""
+					]
+				]
+			],
+			[
+				89565.2173913043,
+				[
+					[
+						"invert game",
+						"black",
+						""
+					]
+				]
+			],
+			[
+				91304.3478260869,
+				[
+					[
+						"invert game",
+						"white",
+						""
+					]
+				]
+			],
+			[
+				93043.4782608696,
+				[
+					[
+						"invert game",
+						"black",
+						""
+					]
+				]
+			],
+			[
+				94782.6086956522,
+				[
+					[
+						"invert game",
+						"white",
+						""
+					]
+				]
+			],
+			[
+				96521.7391304348,
+				[
+					[
+						"invert game",
+						"black",
+						""
+					]
+				]
+			],
+			[
+				98260.8695652174,
+				[
+					[
+						"invert game",
+						"white",
+						""
+					]
+				]
+			],
+			[
+				100000,
+				[
+					[
+						"invert game",
+						"black",
+						""
+					]
+				]
+			],
+			[
+				101739.130434783,
+				[
+					[
+						"invert game",
+						"white",
+						""
+					]
+				]
+			],
+			[
+				103478.260869565,
+				[
+					[
+						"invert game",
+						"black",
+						""
+					]
+				]
+			],
+			[
+				105217.391304348,
+				[
+					[
+						"invert game",
+						"white",
+						""
+					]
+				]
+			],
+			[
+				106956.52173913,
+				[
+					[
+						"invert game",
+						"black",
+						""
+					]
+				]
+			],
+			[
+				108695.652173913,
+				[
+					[
+						"invert game",
+						"white",
+						""
+					]
+				]
+			],
+			[
+				110434.782608696,
+				[
+					[
+						"invert game",
+						"black",
+						""
+					]
+				]
+			],
+			[
+				111304.347826087,
+				[
+					[
+						"invert game",
+						"white",
+						""
+					]
+				]
+			],
+			[
+				125217.391304348,
+				[
+					[
+						"invert game",
+						"black",
+						""
+					]
+				]
+			],
+			[
+				139130.434782609,
+				[
+					[
+						"invert game",
+						"white",
+						""
+					]
+				]
+			],
+			[
+				153043.47826087,
+				[
+					[
+						"invert game",
+						"black",
+						""
+					]
+				]
+			],
+			[
+				166521.739130435,
+				[
+					[
+						"invert game",
+						"white",
+						""
+					]
+				]
+			],
+			[
+				180869.565217392,
+				[
+					[
+						"invert game",
+						"black",
+						""
+					]
+				]
+			],
+			[
+				194782.608695653,
+				[
+					[
+						"invert game",
+						"white",
+						""
+					]
+				]
+			],
+			[
+				201739.130434783,
+				[
+					[
+						"invert game",
+						"black",
+						""
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "noonesaadicon",
+		"opponentKeyAmount": 4,
+		"bpm": 138,
+		"timeSignature": [
+			4,
+			4
+		],
+		"arrowSkin": null,
+		"needsVoices": true,
+		"uiSkinOpponent": "",
+		"song": "bad-apple",
+		"playerKeyAmount": 4,
+		"uiSkin": ""
+	}
+}

@@ -1,0 +1,48 @@
+{
+	"storyName": "some bitchass motherfucker",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekBefore": "tutorial",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		[
+			"thej",
+			"saad",
+			[
+				0,
+				160,
+				255
+			]
+		],
+		[
+			"theunderratedsongnoonecares",
+			"saad",
+			[
+				0,
+				160,
+				255
+			]
+		],
+		[
+			"Saad",
+			"saad",
+			[
+				0,
+				160,
+				255
+			]
+		]
+	],
+	"weekName": "the funny mod"
+}

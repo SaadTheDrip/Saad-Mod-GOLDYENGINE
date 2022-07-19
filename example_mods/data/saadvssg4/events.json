@@ -1,0 +1,29 @@
+{
+	"song": {
+		"speed": 3,
+		"stage": "disc",
+		"player1": "noonesg4icon",
+		"player2": "noonesaadicon",
+		"player3": null,
+		"events": [
+			[
+				0,
+				[
+					[
+						"Camera Follow Pos",
+						"750",
+						"400"
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "noonesaadicon",
+		"bpm": 130,
+		"arrowSkin": null,
+		"needsVoices": true,
+		"song": "saadvssg4"
+	}
+}

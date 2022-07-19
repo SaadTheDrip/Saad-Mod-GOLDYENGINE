@@ -1,0 +1,59 @@
+{
+	"song": {
+		"speed": 2.5,
+		"stage": "City2",
+		"player1": "bfweek2",
+		"player2": "haapy",
+		"player3": null,
+		"events": [
+			[
+				0,
+				[
+					[
+						"Dave&Bambi Styled Watermark (Dave)",
+						" Inspired by No Heroes from the now Cancelled Tails Gets Trolled FNF Mod",
+						""
+					]
+				]
+			],
+			[
+				71625,
+				[
+					[
+						"Add Camera Zoom",
+						"0.075",
+						"0.3"
+					]
+				]
+			],
+			[
+				71628.90625,
+				[
+					[
+						"Hey!",
+						"",
+						""
+					]
+				]
+			],
+			[
+				72000,
+				[
+					[
+						"Add Camera Zoom",
+						"0",
+						"0"
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "gf",
+		"bpm": 160,
+		"arrowSkin": null,
+		"needsVoices": true,
+		"song": "thegoodsongeveryonecares"
+	}
+}

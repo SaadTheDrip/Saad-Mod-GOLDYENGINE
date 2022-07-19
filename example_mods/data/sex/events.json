@@ -1,0 +1,29 @@
+{
+	"song": {
+		"speed": 3.7,
+		"stage": "Jail",
+		"player1": "noonebficon",
+		"player2": "saadgf",
+		"player3": null,
+		"events": [
+			[
+				0,
+				[
+					[
+						"Camera Follow Pos",
+						"760",
+						"500"
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "noonesaadicon",
+		"bpm": 150,
+		"arrowSkin": null,
+		"needsVoices": true,
+		"song": "sex"
+	}
+}

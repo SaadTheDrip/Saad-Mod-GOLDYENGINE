@@ -1,0 +1,39 @@
+{
+	"song": {
+		"speed": 3,
+		"stage": "Happyland",
+		"player1": "bf-b",
+		"player2": "saad-b",
+		"player3": null,
+		"events": [
+			[
+				0,
+				[
+					[
+						"Dave&Bambi Styled Watermark (Dave)",
+						" song made and charted by cheb. b-saad edit by cheb. this is a joke",
+						""
+					]
+				]
+			],
+			[
+				2558.82352941176,
+				[
+					[
+						"Hey!",
+						"both",
+						""
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "gf-b",
+		"bpm": 170,
+		"arrowSkin": null,
+		"needsVoices": true,
+		"song": "theunderratedsongwithoverratedmodidea"
+	}
+}

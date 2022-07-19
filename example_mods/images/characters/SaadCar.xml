@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="SaadCar.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Down0000" x="0" y="0" width="548" height="210"/>
+	<SubTexture name="Down0001" x="0" y="0" width="548" height="210"/>
+	<SubTexture name="Down0002" x="548" y="0" width="548" height="210"/>
+	<SubTexture name="Down0003" x="548" y="0" width="548" height="210"/>
+	<SubTexture name="idle0000" x="1096" y="0" width="498" height="456"/>
+	<SubTexture name="idle0001" x="1096" y="0" width="498" height="456"/>
+	<SubTexture name="idle0002" x="0" y="456" width="498" height="456"/>
+	<SubTexture name="idle0003" x="0" y="456" width="498" height="456"/>
+	<SubTexture name="idle0004" x="498" y="456" width="498" height="456"/>
+	<SubTexture name="idle0005" x="498" y="456" width="498" height="456"/>
+	<SubTexture name="idle0006" x="996" y="456" width="498" height="456"/>
+	<SubTexture name="idle0007" x="996" y="456" width="498" height="456"/>
+	<SubTexture name="left0000" x="1494" y="456" width="380" height="456"/>
+	<SubTexture name="left0001" x="1494" y="456" width="380" height="456"/>
+	<SubTexture name="left0002" x="0" y="912" width="380" height="456"/>
+	<SubTexture name="left0003" x="0" y="912" width="380" height="456"/>
+	<SubTexture name="right0000" x="380" y="912" width="380" height="456"/>
+	<SubTexture name="right0001" x="380" y="912" width="380" height="456"/>
+	<SubTexture name="right0002" x="760" y="912" width="380" height="456"/>
+	<SubTexture name="right0003" x="760" y="912" width="380" height="456"/>
+	<SubTexture name="up0000" x="1140" y="912" width="258" height="620"/>
+	<SubTexture name="up0001" x="1140" y="912" width="258" height="620"/>
+	<SubTexture name="up0002" x="1398" y="912" width="258" height="620"/>
+	<SubTexture name="up0003" x="1398" y="912" width="258" height="620"/>
+</TextureAtlas>

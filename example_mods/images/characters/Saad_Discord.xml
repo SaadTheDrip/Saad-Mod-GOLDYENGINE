@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Saad_Discord.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Right0000" x="0" y="0" width="41" height="28"/>
+	<SubTexture name="down0000" x="0" y="28" width="41" height="10"/>
+	<SubTexture name="idle0000" x="0" y="38" width="26" height="28"/>
+	<SubTexture name="left0000" x="0" y="66" width="44" height="28"/>
+	<SubTexture name="up0000" x="44" y="66" width="15" height="43"/>
+</TextureAtlas>

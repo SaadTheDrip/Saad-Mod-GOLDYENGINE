@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Maad.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="down0000" x="0" y="0" width="896" height="148"/>
+	<SubTexture name="idle0000" x="0" y="148" width="523" height="548"/>
+	<SubTexture name="left0000" x="0" y="696" width="751" height="548"/>
+	<SubTexture name="right0000" x="0" y="1244" width="647" height="548"/>
+	<SubTexture name="up0000" x="647" y="1244" width="195" height="800"/>
+</TextureAtlas>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Funny.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="GF Dancing Beat Instanz 10000" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10001" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10002" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10003" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10004" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10005" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10006" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10007" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10008" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10009" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10010" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10011" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10012" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10013" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10014" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10015" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10016" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10017" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10018" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10019" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10020" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10021" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10022" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10023" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10024" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10025" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10026" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10027" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10028" x="0" y="0" width="709" height="468"/>
+	<SubTexture name="GF Dancing Beat Instanz 10029" x="0" y="0" width="709" height="468"/>
+</TextureAtlas>

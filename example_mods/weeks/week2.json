@@ -1,0 +1,30 @@
+{
+	"storyName": "hes done with your shit",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "week1",
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		[
+			"fuck you",
+			"saad",
+			[
+				0,
+				255,
+				255
+			]
+		]
+	],
+	"weekName": "saadweek2"
+}

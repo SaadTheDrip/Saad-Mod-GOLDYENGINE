@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Saad Pixel.png">
+	<!-- Created with Adobe Animate version 19.2.0.405 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="down0000" x="0" y="0" width="75" height="16"/>
+	<SubTexture name="idle0000" x="75" y="0" width="37" height="46"/>
+	<SubTexture name="left0000" x="0" y="46" width="59" height="46"/>
+	<SubTexture name="right0000" x="59" y="46" width="54" height="46"/>
+	<SubTexture name="up0000" x="0" y="92" width="20" height="66"/>
+</TextureAtlas>

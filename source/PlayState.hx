@@ -74,6 +74,8 @@ class PlayState extends MusicBeatState
 	public var introSuffix:String = '';
 
 	var woah:FlxSprite;
+	
+	var daComposer:String;
 
 
 	var gottaHitNote:Bool;
@@ -1775,8 +1777,8 @@ class PlayState extends MusicBeatState
 				textureMap.set(skin, true);
 			}
 		}
-			
 		
+
 		
 		super.create();
 
@@ -5961,6 +5963,8 @@ class PlayState extends MusicBeatState
 			FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
 			FlxG.stage.removeEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
 		}
+
+		//reset window to before lua messed with it
 		super.destroy();
 	}
 

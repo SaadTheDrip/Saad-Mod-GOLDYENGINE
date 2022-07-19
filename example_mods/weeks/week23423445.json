@@ -1,0 +1,121 @@
+{
+	"storyName": "doin your mom",
+	"difficulties": "hard",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekBefore": "tutorial",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"songs": [
+		[
+			"unfairness",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"free-club-penguin",
+			"cpsaad",
+			[
+				0,
+				215,
+				255
+			]
+		],
+		[
+			"speedy-mimic",
+			"saad2",
+			[
+				160,
+				200,
+				255
+			]
+		],
+		[
+			"thegoodsongeveryonecares",
+			"haapy",
+			[
+				0,
+				0,
+				200
+			]
+		],
+		[
+			"saadvssg4",
+			"saad",
+			[
+				0,
+				215,
+				255
+			]
+		],
+		[
+			"pixel",
+			"saadpixel",
+			[
+				0,
+				235,
+				235
+			]
+		],
+		[
+			"pixel-two",
+			"mcsaad",
+			[
+				255,
+				40,
+				80
+			]
+		],
+		[
+			"theunderratedsongwithoverratedmodidea",
+			"saad-b",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"bad-apple",
+			"saadbad",
+			[
+				0,
+				0,
+				0
+			]
+		],
+		[
+			"dilemma",
+			"saad",
+			[
+				0,
+				215,
+				255
+			]
+		],
+		[
+			"roses",
+			"saad",
+			[
+				0,
+				235,
+				235
+			]
+		]
+	],
+	"hideStoryMode": true,
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
+	"weekName": "Custom Week"
+}
