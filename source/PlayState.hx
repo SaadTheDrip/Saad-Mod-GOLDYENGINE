@@ -266,8 +266,8 @@ class PlayState extends MusicBeatState
 	public static var seenCutscene:Bool = false;
 	public static var deathCounter:Int = 0;
 
-	public var defaultCamZoom:Float = 1.05;
-	public var defaultCamHudZoom:Float = 1;
+	public var defaultCamZoom:Float = 0.85;
+	public var defaultCamHudZoom:Float = 0.8;
 
 	// how big to stretch the pixel art assets
 	public static var daPixelZoom:Float = 6;

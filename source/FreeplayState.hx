@@ -96,6 +96,7 @@ class FreeplayState extends MusicBeatState
 		WeekData.loadTheFirstEnabledMod();
 
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		bg.setGraphicSize(Std.int(bg.width * 1.5));
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 		bg.screenCenter();
@@ -247,8 +248,6 @@ class FreeplayState extends MusicBeatState
 
 		scoreText.text = 'PERSONAL BEST: $lerpScore (${ratingSplit.join('.')}%)';
 		positionHighscore();
-
-		FlxG.camera.zoom = FlxMath.lerp(1, FlxG.camera.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
 
 		var blockInput:Bool = false;
 		var blockPressWhileTypingOn = [searchText];
