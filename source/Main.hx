@@ -1,3 +1,4 @@
+#if !html5
 package;
 
 import flixel.graphics.FlxGraphic;
@@ -18,10 +19,12 @@ import openfl.events.UncaughtErrorEvent;
 import haxe.CallStack;
 import haxe.io.Path;
 import Discord.DiscordClient;
+#end
 import sys.FileSystem;
 import sys.io.File;
 import sys.io.Process;
-#end
+// NO MORE HTML!!!!
+
 
 using StringTools;
 
@@ -146,3 +149,4 @@ class Main extends Sprite
 	}
 	#end
 }
+#end
