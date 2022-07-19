@@ -56,6 +56,7 @@ class OptionsState extends MusicBeatState
 		FlxG.mouse.visible = true;
 
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		bg.setGraphicSize(Std.int(bg.width * 1.5));
 		bg.color = 0xFFea71fd;
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;

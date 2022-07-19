@@ -987,8 +987,6 @@ class PlayState extends MusicBeatState
 				}
 			}
 			// hmmmm
-			if (ClientPrefs.camFollow && WeekData.getWeekFileName() != 'week6')
-               luaArray.push(new FunkinLua('assets/scripts/optional/camFollow.lua'));
 			#end
 			
 			// STAGE SCRIPTS
