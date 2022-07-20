@@ -1,4 +1,3 @@
-#if !html5
 package;
 
 import flixel.graphics.FlxGraphic;
@@ -19,12 +18,10 @@ import openfl.events.UncaughtErrorEvent;
 import haxe.CallStack;
 import haxe.io.Path;
 import Discord.DiscordClient;
-#end
 import sys.FileSystem;
 import sys.io.File;
 import sys.io.Process;
-// NO MORE HTML!!!!
-
+#end
 
 using StringTools;
 
@@ -91,7 +88,7 @@ class Main extends Sprite
 		fpsVar = new FPS(10, 3, 0xFFFFFF);
 		addChild(fpsVar);
 		Lib.current.stage.align = "tl";
-		Lib.current.stage.scaleMode = StageScaleMode.SHOW_ALL;
+		Lib.current.stage.scaleMode = StageScaleMode.NO_SCALE;
 		if(fpsVar != null) {
 			fpsVar.visible = ClientPrefs.showFPS;
 		}
@@ -149,4 +146,3 @@ class Main extends Sprite
 	}
 	#end
 }
-#end

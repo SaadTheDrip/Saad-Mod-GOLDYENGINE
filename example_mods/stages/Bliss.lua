@@ -2,7 +2,7 @@ function onCreate()
 
 	makeLuaSprite('Bliss','Bliss',-3200 , -1600)
 	addLuaSprite('Bliss',false)
-	scaleObject('Bliss', 8, 8);
+	scaleObject('Bliss', 7.5, 7.5);
 
-	close(true)
+
 end
