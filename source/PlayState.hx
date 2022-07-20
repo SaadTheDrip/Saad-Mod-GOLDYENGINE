@@ -1954,7 +1954,6 @@ class PlayState extends MusicBeatState
 			{
 				FlxG.camera.flash(FlxColor.WHITE, 1); // funny mukbang flash (wtf i wrote)
 			}
-			add(woah);
 			songScore = songScore + 100; // give one hundred score for shit
 			new FlxTimer().start(1.5, function(tmr:FlxTimer)
 			{
