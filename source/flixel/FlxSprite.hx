@@ -1,4 +1,4 @@
-#if !html5
+
 package flixel;
 
 import flash.display.BitmapData;
@@ -1445,4 +1445,4 @@ interface IFlxSprite extends IFlxBasic
 	function reset(X:Float, Y:Float):Void;
 	function setPosition(X:Float = 0, Y:Float = 0):Void;
 }
-#end
+

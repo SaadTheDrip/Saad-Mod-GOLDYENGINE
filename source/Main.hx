@@ -11,7 +11,7 @@ import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.display.StageScaleMode;
 
-//crash handler stuff
+
 #if CRASH_HANDLER
 import lime.app.Application;
 import openfl.events.UncaughtErrorEvent;
@@ -88,7 +88,7 @@ class Main extends Sprite
 		fpsVar = new FPS(10, 3, 0xFFFFFF);
 		addChild(fpsVar);
 		Lib.current.stage.align = "tl";
-		Lib.current.stage.scaleMode = StageScaleMode.SHOW_ALL;
+		Lib.current.stage.scaleMode = StageScaleMode.NO_SCALE;
 		if(fpsVar != null) {
 			fpsVar.visible = ClientPrefs.showFPS;
 		}
