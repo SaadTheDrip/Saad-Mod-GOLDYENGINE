@@ -1778,45 +1778,11 @@ class PlayState extends MusicBeatState
 			
 		var path:String = Paths.getPath('data/$curSong/composerList.txt', TEXT); // bruh
 
-		var daComposer:String;
 
-		if (OpenFlAssets.exists(path))
-			daComposer = OpenFlAssets.getText(path);
-	    else {
-			daComposer = null;
-		}
 		// I LOVE OPEN FL!!! /j
 
-		
 
-		if (daComposer == null) {
-            var ogSongsArray:Array<String> = ['tutorial', 'bopeebo', 'fresh', 'dad-battle', 'spookeez', 'south', 'pico', 'philly-nice', 'blammed', 'high', 'satin-panties', 'milf', /* so sus*/ 'cocoa', 'eggnog', 'senpai', 'roses', 'thorns'];
-			for (i in ogSongsArray) {
-			if (curSong != i) {
-				daComposer = '???';
-			
-		    } 
-			else if (curSong == 'monster' || curSong == 'winter-horrorland') {
-				daComposer = 'Main Song: Kawai Sprite    \nMain Voices: Basset Films';
-			}
-			else {
-				daComposer = 'Main Song: KawaiSprite';
-			}
-		}
-		}
-		
-		
-		var daText:FlxText = new FlxText(12, FlxG.height - 200, 0, '
-		Song Name : $curSong   \n
-		Composer(s): \n $daComposer
-		', 12);
-		daText.scrollFactor.set();
-		daText.setFormat("Comic Sans MS", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		daText.scale.set(1.75, 1.75);
-		daText.updateHitbox();
-		daText.antialiasing = ClientPrefs.globalAntialiasing;
-		add(daText);
-			// i was too stupid sorry lmao
+
 		
 		
 		super.create();
