@@ -4,5 +4,5 @@ function onCreate()
 	scaleObject('TheSky', 1.7, 1.7);
 	addLuaSprite('TheSky',false)
 
-	close(true)
+
 end
