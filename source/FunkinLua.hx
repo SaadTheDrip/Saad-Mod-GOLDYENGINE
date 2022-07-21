@@ -265,6 +265,10 @@ class FunkinLua {
 		Lua_helper.add_callback(lua, "changeWindowTitle", function(title:String = 'Friday Night Funkin\'') {
 			Application.current.window.title = title;
 		});
+		
+		Lua_helper.add_callback(lua, "ChangeWindowSize", function(title:String = 'Friday Night Funkin\'') {
+			Application.current.window.title = title;
+		});
 		Lua_helper.add_callback(lua, "changeWindowIcon", function(image:String) {
 			CoolUtil.setWindowIcon(image);
 		});

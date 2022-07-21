@@ -3,27 +3,21 @@
 	"difficulties": "hard",
 	"hideFreeplay": false,
 	"weekBackground": "stage",
+	"weekBefore": "tutorial",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
-	"weekBefore": "tutorial",
 	"startUnlocked": true,
-	"weekCharacters": [
-		"dad",
-		"bf",
-		"gf"
-	],
-	"hideStoryMode": true,
 	"songs": [
 		[
 			"unfairness",
-			"dad",
+			"3dsaad",
 			[
-				146,
-				113,
-				253
+				0,
+				155,
+				235
 			]
 		],
 		[
@@ -124,7 +118,22 @@
 				113,
 				253
 			]
+		],
+		[
+			"wip",
+			"spooky",
+			[
+				200,
+				100,
+				0
+			]
 		]
+	],
+	"hideStoryMode": true,
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
 	],
 	"weekName": "Custom Week"
 }

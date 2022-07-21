@@ -14,7 +14,7 @@ using StringTools;
 
 class DiscordClient
 {
-	public static var clientID:String = "971768915380281354";
+	public static var clientID:String = "999683912999653447";
 	public static var isInitialized:Bool = false;
 	public function new()
 	{
@@ -47,7 +47,7 @@ class DiscordClient
 			details: "In the Menus",
 			state: null,
 			largeImageKey: 'icon',
-			largeImageText: "Goldy Engine"
+			largeImageText: "Funny Engine"
 		});
 	}
 
