@@ -1778,7 +1778,8 @@ class PlayState extends MusicBeatState
 			
 		var path:String = Paths.getPath('data/$curSong/composerList.txt', TEXT); // bruh
 
-		
+		var daComposer:String;
+
 		if (OpenFlAssets.exists(path))
 			daComposer = OpenFlAssets.getText(path);
 	    else {
@@ -1805,7 +1806,7 @@ class PlayState extends MusicBeatState
 		}
 		
 		
-		daText = new FlxText(12, FlxG.height - 240, 0, '
+		var daText:FlxText = new FlxText(12, FlxG.height - 200, 0, '
 		Song Name : $curSong   \n
 		Composer(s): \n $daComposer
 		', 12);
