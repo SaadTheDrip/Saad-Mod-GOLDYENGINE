@@ -48,6 +48,7 @@ class CreditsState extends MusicBeatState
 
 		persistentUpdate = true;
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		bg.setGraphicSize(Std.int(bg.width * 1.5));
 		add(bg);
 		bg.screenCenter();
 
@@ -83,6 +84,10 @@ class CreditsState extends MusicBeatState
 		#end
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
+			["Saad Mod Team"],
+            ['Saad', 'saad', 'Sprites, Music, Coding', 'https://gamejolt.com/@saadthedrip', '6475F3'],
+			['Cheb', 'cheb', 'Coding', 'https://gamejolt.com/@chebtheidk', '53E52C'],
+			[''],	
 			["Goldy Engine Team (best lua engine team)"],
 			['Cheb', 'cheb', 'Have did litteraly everything for the engine. Yeah', 'https://gamejolt.com/@chebtheidk', '53E52C'],
 			['talking ben real?', 'lebronjames', 'Was helping with coding, music, and art.', 'https://gamejolt.com/@ImAsimpguy', '53E52C'],
