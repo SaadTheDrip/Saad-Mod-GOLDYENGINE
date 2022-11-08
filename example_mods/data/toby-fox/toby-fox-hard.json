@@ -1,7 +1,7 @@
 {
 	"song": {
 		"player1": "bf",
-		"player2": "toby",
+		"uiSkin": "default",
 		"notes": [
 			{
 				"changeSignature": false,
@@ -7974,8 +7974,6 @@
 					4,
 					4
 				],
-				"lengthInSteps": 16,
-				"changeKeys": false,
 				"sectionNotes": [
 					[
 						93333.3333333333,
@@ -8060,6 +8058,8 @@
 					]
 				],
 				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"changeKeys": false,
 				"playerKeys": 4,
 				"gfSection": false,
 				"bpm": 110,
@@ -8074,6 +8074,8 @@
 					4,
 					4
 				],
+				"lengthInSteps": 16,
+				"typeOfSection": 0,
 				"sectionNotes": [
 					[
 						94999.9999999999,
@@ -8158,8 +8160,6 @@
 					]
 				],
 				"changeKeys": false,
-				"lengthInSteps": 16,
-				"typeOfSection": 0,
 				"playerKeys": 4,
 				"gfSection": false,
 				"changeBPM": false,
@@ -8174,6 +8174,8 @@
 					4,
 					4
 				],
+				"lengthInSteps": 16,
+				"typeOfSection": 0,
 				"sectionNotes": [
 					[
 						96499.9999999999,
@@ -8258,8 +8260,6 @@
 					]
 				],
 				"changeKeys": false,
-				"lengthInSteps": 16,
-				"typeOfSection": 0,
 				"playerKeys": 4,
 				"gfSection": false,
 				"changeBPM": false,
@@ -8274,6 +8274,8 @@
 					4,
 					4
 				],
+				"lengthInSteps": 16,
+				"typeOfSection": 0,
 				"sectionNotes": [
 					[
 						97499.9999999999,
@@ -8358,8 +8360,6 @@
 					]
 				],
 				"changeKeys": false,
-				"lengthInSteps": 16,
-				"typeOfSection": 0,
 				"playerKeys": 4,
 				"gfSection": false,
 				"changeBPM": false,
@@ -8672,21 +8672,106 @@
 				"bpm": 180
 			},
 			{
-				"playerKeys": 4,
 				"changeSignature": false,
-				"gfSection": false,
-				"lengthInSteps": 16,
+				"opponentKeys": 4,
 				"altAnim": false,
+				"timeSignature": [
+					4,
+					4
+				],
+				"mustHitSection": true,
+				"changeKeys": false,
+				"lengthInSteps": 16,
 				"sectionNotes": [],
+				"playerKeys": 4,
+				"gfSection": false,
 				"bpm": 180,
+				"changeBPM": false
+			},
+			{
+				"changeSignature": false,
+				"opponentKeys": 4,
+				"altAnim": false,
 				"timeSignature": [
 					4,
 					4
 				],
-				"changeBPM": false,
-				"changeKeys": false,
 				"mustHitSection": true,
-				"opponentKeys": 4
+				"changeKeys": false,
+				"lengthInSteps": 16,
+				"sectionNotes": [],
+				"playerKeys": 4,
+				"gfSection": false,
+				"bpm": 180,
+				"changeBPM": false
+			},
+			{
+				"changeSignature": false,
+				"opponentKeys": 4,
+				"altAnim": false,
+				"timeSignature": [
+					4,
+					4
+				],
+				"mustHitSection": true,
+				"changeKeys": false,
+				"lengthInSteps": 16,
+				"sectionNotes": [],
+				"playerKeys": 4,
+				"gfSection": false,
+				"bpm": 180,
+				"changeBPM": false
+			},
+			{
+				"changeSignature": false,
+				"opponentKeys": 4,
+				"altAnim": false,
+				"timeSignature": [
+					4,
+					4
+				],
+				"mustHitSection": true,
+				"changeKeys": false,
+				"lengthInSteps": 16,
+				"sectionNotes": [],
+				"playerKeys": 4,
+				"gfSection": false,
+				"bpm": 180,
+				"changeBPM": false
+			},
+			{
+				"changeSignature": false,
+				"opponentKeys": 4,
+				"altAnim": false,
+				"timeSignature": [
+					4,
+					4
+				],
+				"mustHitSection": true,
+				"changeKeys": false,
+				"lengthInSteps": 16,
+				"sectionNotes": [],
+				"playerKeys": 4,
+				"gfSection": false,
+				"bpm": 180,
+				"changeBPM": false
+			},
+			{
+				"changeSignature": false,
+				"opponentKeys": 4,
+				"altAnim": false,
+				"mustHitSection": true,
+				"timeSignature": [
+					4,
+					4
+				],
+				"changeKeys": false,
+				"lengthInSteps": 16,
+				"sectionNotes": [],
+				"playerKeys": 4,
+				"gfSection": false,
+				"changeBPM": false,
+				"bpm": 180
 			},
 			{
 				"playerKeys": 4,
@@ -8757,7 +8842,7 @@
 				"opponentKeys": 4
 			}
 		],
-		"uiSkin": "default",
+		"player2": "toby",
 		"player3": "gf",
 		"song": "toby-fox",
 		"playerKeyAmount": 4,
@@ -8772,7 +8857,7 @@
 		],
 		"uiSkinOpponent": "default",
 		"needsVoices": true,
-		"stage": "white",
+		"stage": "no more",
 		"bpm": 180
 	}
 }

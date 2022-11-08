@@ -1,0 +1,27 @@
+{
+	"storyName": "Your New Week",
+	"difficulties": "German,English",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
+	"hideStoryMode": true,
+	"songs": [
+		[
+			"haferbrei",
+			"dad",
+			[
+				255,
+				113,
+				253
+			]
+		]
+	],
+	"weekName": "Custom Week",
+	"hiddenUntilUnlocked": false
+}
